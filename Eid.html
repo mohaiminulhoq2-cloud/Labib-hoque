@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Eid Salami</title>
+
+<style>
+
+body{
+margin:0;
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#141E30,#243B55);
+font-family:sans-serif;
+color:white;
+overflow:hidden;
+}
+
+.card{
+width:330px;
+padding:35px;
+border-radius:20px;
+text-align:center;
+background:rgba(255,255,255,0.1);
+backdrop-filter:blur(15px);
+}
+
+.profile{
+width:120px;
+height:120px;
+border-radius:50%;
+object-fit:cover;
+border:4px solid gold;
+margin-bottom:15px;
+}
+
+button{
+
+padding:14px 25px;
+border:none;
+border-radius:25px;
+background:gold;
+font-size:16px;
+cursor:pointer;
+
+}
+
+.money{
+
+position:absolute;
+top:-100px;
+width:120px;
+
+animation:fall 4s linear forwards;
+
+}
+
+@keyframes fall{
+
+0%{transform:translateY(0) rotate(0deg);}
+
+100%{transform:translateY(110vh) rotate(360deg);}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+<img src="profile.jpg" class="profile">
+
+<h2>🌙 Eid Mubarak</h2>
+
+<p>লাবিব ভাইয়ের পক্ষ থেকে ঈদের সালামি নিন 😎</p>
+
+<button onclick="salami()">সালামি নিন 💸</button>
+
+<audio id="sound" loop>
+
+<source src="sound.mp3">
+
+</audio>
+
+</div>
+
+<script>
+
+function salami(){
+
+document.getElementById("sound").play();
+
+let notes=["500.png","1000.png"];
+
+for(let i=0;i<25;i++){
+
+let money=document.createElement("img");
+
+money.src=notes[Math.floor(Math.random()*notes.length)];
+
+money.classList.add("money");
+
+money.style.left=Math.random()*100+"vw";
+
+document.body.appendChild(money);
+
+setTimeout(()=>{
+money.remove();
+},4000);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
